@@ -1,0 +1,13 @@
+/* Global additions for param dropdown on home.php */
+.params-menu{position:fixed;right:18px;top:78px;width:320px;max-width:calc(100vw - 24px);background:#0f141d;color:#e5e7eb;border:1px solid rgba(255,255,255,.1);border-radius:12px;box-shadow:0 15px 60px rgba(0,0,0,.45);padding:14px;display:none;z-index:2100;font-family:Inter,system-ui}
+.params-menu.show{display:block}
+.params-header{display:flex;gap:12px;align-items:center;margin-bottom:8px}
+.params-avatar{width:56px;height:56px;border-radius:50%;background:#111827;display:inline-flex;align-items:center;justify-content:center;font-weight:800}
+.params-name{font-weight:700}
+.params-meta{font-size:12px;color:#94a3b8}
+.params-row{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed rgba(255,255,255,.06)}
+.params-row:last-child{border-bottom:none}
+.logout-btn{width:100%;margin-top:10px;padding:10px 12px;border-radius:10px;background:#4f46e5;border:none;color:white;font-weight:700;cursor:pointer}
+.logout-btn:hover{background:#4338ca}
+.param-btn{appearance:none;border:1px solid rgba(255,255,255,.12);background:#0f141d;color:#e5e7eb;border-radius:8px;padding:8px 10px;cursor:pointer}
+.param-btn:focus-visible{outline:2px solid #4f46e5}
