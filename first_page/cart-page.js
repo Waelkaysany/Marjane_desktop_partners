@@ -205,11 +205,12 @@ function setupEventListeners() {
   if (checkoutBtn) {
     checkoutBtn.addEventListener('click', function() {
       if (!checkoutBtn.disabled) {
-        showNotification('Redirecting to checkout...', 'info');
-        // Here you would typically redirect to checkout page
-        setTimeout(() => {
-          alert('Checkout functionality would be implemented here');
-        }, 1000);
+        // Call the submitOrder function from cart.js
+        if (typeof window.submitOrder === 'function') {
+          window.submitOrder();
+        } else {
+          showNotification('Checkout system not available', 'error');
+        }
       }
     });
   }

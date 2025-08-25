@@ -15,7 +15,7 @@ const recommendedProducts = [
   {
     id: 2,
     name: "PACK SIDI ALI",
-    image: "https://images.unsplash.com/photo-1511689660979-10d2b1aada49?w=400&h=400&fit=crop&crop=center",
+    image: "http://almaa.ma/597-large_default/sidi-ali-pack-05l-x12.jpg",
     quantity: "1 pack",
     price: 1.95,
     originalPrice: 2.25,
@@ -27,7 +27,7 @@ const recommendedProducts = [
   {
     id: 3,
     name: "TONIK CLASSIC",
-    image: "https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?w=400&h=400&fit=crop&crop=center",
+    image: "https://bsahashop.com/cdn/shop/files/D7432352-57D8-40C9-94EE-E49BEE66B52B.jpg?v=1711812555&width=2048",
     quantity: "1 piece",
     price: 1.55,
     originalPrice: 1.95,
@@ -39,7 +39,7 @@ const recommendedProducts = [
   {
     id: 4,
     name: "DALAA WOOLY",
-    image: "https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?w=400&h=400&fit=crop&crop=center",
+    image: "https://cdn.youcan.shop/stores/2ab36242f98b84d05de34a2100837952/products/KL6gsod7m1oXeiinGDdqAK6kgVPjpRMT6USy25K9_lg.jpeg",
     quantity: "1 serving",
     price: 0.90,
     originalPrice: 1.20,
@@ -51,7 +51,7 @@ const recommendedProducts = [
   {
     id: 5,
     name: "LESIEUR",
-    image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=400&fit=crop&crop=center",
+    image: "https://storage.googleapis.com/sales-img-ma-live/web/cache/sylius_shop_product_original/4c/84/ece24a4167a9b3568856530454f5.jpg",
     quantity: "1 bunch",
     price: 1.49,
     originalPrice: 2.99,
@@ -63,7 +63,7 @@ const recommendedProducts = [
   {
     id: 6,
     name: "PACK PROMO SALIM",
-    image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=400&fit=crop&crop=center",
+    image: "https://cdn.youcan.shop/stores/2ab36242f98b84d05de34a2100837952/products/ixaYpLVJ5MTpbrJArMBZ9MmgzWDLqjVKfohdaBOR_lg.jpeg",
     quantity: "1 cup",
     price: 3,
     originalPrice: 3.60,
@@ -75,7 +75,7 @@ const recommendedProducts = [
   {
     id: 7,
     name: "THON JOLY",
-    image: "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=400&h=400&fit=crop&crop=center",
+    image: "https://liya.ma/wp-content/uploads/2024/04/Design-sans-titre-165.png",
     quantity: "1 jar",
     price: 3.1,
     originalPrice: 3.50,
@@ -87,7 +87,7 @@ const recommendedProducts = [
   {
     id: 8,
     name: "COCA COLA",
-    image: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=400&fit=crop&crop=center",
+    image: "http://almaa.ma/394-large_default/Coca-cola-1L.jpg",
     quantity: "1 bowl",
     price: 0.55,
     originalPrice: 0.75,
@@ -111,7 +111,7 @@ const recommendedProducts = [
   {
     id: 10,
     name: "GHAYT",
-    image: "https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=400&h=400&fit=crop&crop=center",
+    image: "https://ghayt.ma/boutique//images/banner-extra-large-bottle.png.webp",
     quantity: "1 bowl",
     price:1,
     originalPrice: 1.3,
@@ -123,10 +123,10 @@ const recommendedProducts = [
   {
     id: 11,
     name: "BAROUD",
-    image: "https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=400&h=400&fit=crop&crop=center",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2pyVESkolbcKUQ3slggcSARB26Yjlq6uh0Q&s",
     quantity: "1 pack",
-    price: 3.49,
-    originalPrice: 4.99,
+    price: 1.9,
+    originalPrice: 2.2,
     rating: 4,
     description: "THE VERT BAROUD 200G",
     tag: "discount",
@@ -135,7 +135,7 @@ const recommendedProducts = [
   {
     id: 12,
     name: "JAVEL ACE",
-    image: "https://images.unsplash.com/photo-1498557850523-fd3d118b962e?w=400&h=400&fit=crop&crop=center",
+    image: "https://www.mymarket.ma/cdn/shop/products/8121FF98-996B-494F-AFB5-0527285564BC.png?v=1657019305&width=375",
     quantity: "1 pack",
     price: 1.3,
     originalPrice: 1.7,
@@ -147,7 +147,7 @@ const recommendedProducts = [
   {
     id: 13,
     name: "LARENA",
-    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=400&fit=crop&crop=center",
+    image: "https://storage.googleapis.com/sales-img-ma-live/web/cache/sylius_large/ea/ce/b2cbca2d13ac159c5faba8c1be26.jpg",
     quantity: "1 tub",
     price: 2.19,
     originalPrice: 2.55,
@@ -159,7 +159,7 @@ const recommendedProducts = [
   {
     id: 14,
     name: "EL BARAKA",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center",
+    image: "https://storage.googleapis.com/sales-img-ma-live/web/cache/sylius_large/48/60/fa6ec1e737345f12223a8b31e30f.jpg",
     quantity: "1 can",
     price: 1.3,
     originalPrice: 1.7,
@@ -171,7 +171,7 @@ const recommendedProducts = [
   {
     id: 15,
     name: "AL ITKANE",
-    image: "https://images.unsplash.com/photo-1599599810769-bcde5a160d32?w=400&h=400&fit=crop&crop=center",
+    image: "https://api.allonaya.ma/assets/files/Media/aeT6x2BSRqvxKDkrH/thumbnail/1639472092.png",
     quantity: "1 pack",
     price: 5,
     originalPrice: 5.50,
@@ -183,10 +183,10 @@ const recommendedProducts = [
   {
     id: 16,
     name: "PRESS'UP ORANGE",
-    image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center",
+    image: "https://api.allonaya.ma/assets/files/Media/yYTDsP7HNMvP7PAgm/thumbnail/48.png",
     quantity: "1 box",
-    price: 4.5,
-    originalPrice: 6,
+    price: 0.45,
+    originalPrice: 0.6,
     rating: 4,
     description: "NECTAR FRAIS D'ORANGE",
     tag: "discount",

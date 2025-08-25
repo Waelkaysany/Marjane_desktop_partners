@@ -50,35 +50,55 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$locked) {
 <body>
 	<div class="login-wrap">
 		<section class="left">
-			<div class="brand">MARJANE Partner</div>
+			<div class="hero-content">
+				<div class="hero-quote">A WISE QUOTE</div>
+				<h1 class="hero-title">Get Everything<br>You Want</h1>
+				<p class="hero-subtitle">You can get everything you want if you work hard, trust the process, and stick to the plan.</p>
+			</div>
+		</section>
+		<aside class="right">
 			<div class="card">
-				<h1 class="title">Sign In</h1>
+				<div class="brand">Cogie</div>
+				<h1 class="title">Welcome Back</h1>
+				<p>Enter your email and password to access your account</p>
 				<?php if ($locked): ?><p class="error">Too many attempts. Try again later.</p><?php endif; ?>
 				<?php foreach ($errors as $e): ?><p class="error"><?php echo htmlspecialchars($e); ?></p><?php endforeach; ?>
 				<form method="post" novalidate>
 					<div class="field">
-						<label for="username">User Name</label>
-						<input class="input" id="username" name="username" type="text" autocomplete="username" required value="<?php echo htmlspecialchars($name); ?>">
+						<label for="username">Name</label>
+						<input class="input" id="username" name="username" type="text" autocomplete="username" placeholder="Enter your full name" required value="<?php echo htmlspecialchars($name); ?>">
 					</div>
 					<div class="field">
 						<label for="password">Password</label>
 						<div class="pw">
-							<input class="input" id="password" name="password" type="password" autocomplete="current-password" required>
-							<button type="button" id="togglePw" class="show" aria-pressed="false">Show</button>
+							<input class="input" id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" required>
+							<button type="button" id="togglePw" class="show" aria-pressed="false">👁</button>
 						</div>
-						<small class="helper">Use your partner credentials</small>
 					</div>
-					<button class="btn btn-primary" type="submit">Sign in</button>
+					<div class="field" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+						<label style="display: flex; align-items: center; margin: 0; cursor: pointer;">
+							<input type="checkbox" style="margin-right: 0.5rem;"> Remember me
+						</label>
+						<a href="#" style="color: var(--accent-color); text-decoration: none; font-size: 0.875rem;">Forgot Password?</a>
+					</div>
+					<button class="btn btn-primary" type="submit">Sign In</button>
 				</form>
 			</div>
-		</section>
-		<aside class="right" aria-hidden="true"></aside>
+		</aside>
 	</div>
 	<script>
 	(function(){
 		const pw=document.getElementById('password');
 		const btn=document.getElementById('togglePw');
-		if(btn&&pw){btn.addEventListener('click',()=>{const t=pw.type==='text';pw.type=t?'password':'text';btn.setAttribute('aria-pressed',String(!t));btn.textContent=t?'Show':'Hide';pw.focus();});}
+		if(btn&&pw){
+			btn.addEventListener('click',()=>{
+				const t=pw.type==='text';
+				pw.type=t?'password':'text';
+				btn.setAttribute('aria-pressed',String(!t));
+				btn.textContent=t?'👁':'👁‍🗨';
+				pw.focus();
+			});
+		}
 	})();
 	</script>
 </body>
