@@ -1,6 +1,6 @@
 <?php
-require_once __DIR__ . '/includes/db.php';
-require_once __DIR__ . '/includes/session.php';
+require_once __DIR__ . '/../includes/db.php';
+require_once __DIR__ . '/../includes/session.php';
 require_auth();
 
 $stmt = $pdo->prepare('SELECT id, username, full_name, email, phone, company, role, avatar_url, address, status, created_at, last_login, notes FROM partners WHERE id = :id LIMIT 1');
@@ -12,9 +12,10 @@ $partner = $stmt->fetch();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="assets/css/main.css">
-  <link rel="stylesheet" href="style.css">
-  <title>Home</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="product.css">
+  <title>Products</title>
 </head>
 <body>
   <nav>
@@ -23,9 +24,9 @@ $partner = $stmt->fetch();
    </div>
    <div class="menu">
     <ul>
-    <li><a href="home.php">PROMOTIONS</a></li>
-    <li><a href="product/">PRODUCTS</a></li>
-             <li><a href="equipment/equipment.php">EQUIPMENTS</a></li>
+    <li><a href="../home.php">PROMOTIONS</a></li>
+    <li><a href="index.php">PRODUCTS</a></li>
+             <li><a href="../equipment/equipment.php">EQUIPMENTS</a></li>
     </ul>
    </div>
    <div class="right-side">
@@ -46,7 +47,7 @@ $partner = $stmt->fetch();
         </svg>
       </span>
     </button>
-    <a class="cart-link" href="cart.php" aria-label="Cart">
+    <a class="cart-link" href="../cart.php" aria-label="Cart">
       <div class="cart-icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="9" cy="21" r="1"></circle>
@@ -61,42 +62,116 @@ $partner = $stmt->fetch();
   </nav>
   <div class="main"> 
      <div id="page1">
-      <img src="../img.video/a4a11e4c-0af0-4601-ae4c-072c6cae0ab2.png" alt="">
-<p>OUR RECOMMENDATIONS</p>
+      <img src="../../img.video/a4a11e4c-0af0-4601-ae4c-072c6cae0ab2.png" alt="">
+<p>ALL PRODUCTS</p>
  </div>
  <div id="page2">
    <div class="container">
      <div class="section-header">
-       <h2 class="section-title">You might need</h2>
-       <a href="#" class="see-more">See more →</a>
+       <h2 class="section-title">Our Products</h2>
+       <a href="../home.php" class="see-more">Back to Home →</a>
      </div>
+     
+     <!-- Product Filter Bar -->
+     <div class="product-filter-bar">
+       <div class="filter-categories">
+         <button class="filter-category active" data-category="all">
+           All Products
+         </button>
+         <button class="filter-category" data-category="beverages">
+           Beverages
+         </button>
+         <button class="filter-category" data-category="food">
+           Food
+         </button>
+         <button class="filter-category" data-category="household">
+           Household
+         </button>
+         <button class="filter-category" data-category="personal">
+           Personal Care
+         </button>
+       </div>
+       
+       <div class="filter-controls">
+         <button class="filter-btn" id="filterBtn">
+           <span>Filters</span>
+           <svg class="filter-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+             <polyline points="6,9 12,15 18,9"></polyline>
+           </svg>
+         </button>
+       </div>
+     </div>
+     
+     <!-- Filter Dropdown -->
+     <div class="filter-dropdown" id="filterDropdown">
+       <div class="filter-section">
+         <h4>Price Range</h4>
+         <div class="price-range">
+           <input type="range" id="priceRange" min="0" max="5" step="0.1" value="5">
+           <div class="price-display">
+             <span>Max: $<span id="priceValue">5.00</span></span>
+           </div>
+         </div>
+       </div>
+       
+       <div class="filter-section">
+         <h4>Rating</h4>
+         <div class="rating-filters">
+           <label class="rating-option">
+             <input type="checkbox" value="5" checked>
+             <span class="stars">★★★★★</span>
+             <span>5 stars</span>
+           </label>
+           <label class="rating-option">
+             <input type="checkbox" value="4" checked>
+             <span class="stars">★★★★☆</span>
+             <span>4+ stars</span>
+           </label>
+           <label class="rating-option">
+             <input type="checkbox" value="3" checked>
+             <span class="stars">★★★☆☆</span>
+             <span>3+ stars</span>
+           </label>
+         </div>
+       </div>
+       
+       <div class="filter-section">
+         <h4>Discount</h4>
+         <div class="discount-filters">
+           <label class="discount-option">
+             <input type="checkbox" value="high" checked>
+             <span>High Discount (30%+)</span>
+           </label>
+           <label class="discount-option">
+             <input type="checkbox" value="medium" checked>
+             <span>Medium Discount (15-30%)</span>
+           </label>
+           <label class="discount-option">
+             <input type="checkbox" value="low" checked>
+             <span>Low Discount (<15%)</span>
+           </label>
+         </div>
+       </div>
+       
+       <div class="filter-actions">
+         <button class="clear-filters" id="clearFilters">Clear All</button>
+         <button class="apply-filters" id="applyFilters">Apply Filters</button>
+       </div>
+     </div>
+     
+     <!-- Results Counter -->
+     <div class="results-counter">
+       <span id="resultsCount">16 products</span>
+     </div>
+     
      <div id="productGrid" class="product-grid"></div>
    </div>
  </div>
  </div>
- <script src="./recommendation-product.js"></script>
- <script src="./cart.js"></script>
-       <script>
-        // Wait for cart.js to load and initialize
-        document.addEventListener('DOMContentLoaded', function() {
-          // Initialize cart first
-          if (!window.cart) {
-            window.cart = new Cart();
-          }
-          
-          // Simple call to render all products
-          renderProducts();
-          
-          // Initialize cart icon after products are rendered
-          setTimeout(() => {
-            if (window.cart) {
-              window.cart.updateCartIcon();
-              console.log('Cart initialized with items:', window.cart.getItems());
-            }
-          }, 100);
-        });
-      </script>
- <script src="assets/js/profile.js" defer></script>
+ <script src="../recommendation-product.js"></script>
+ <script src="../cart.js"></script>
+ <script src="product.js"></script>
+ <script src="../assets/js/profile.js" defer></script>
  
  <!-- Footer Section -->
  <footer class="footer">
@@ -180,7 +255,7 @@ $partner = $stmt->fetch();
    <?php if (!empty($partner['address'])): ?><div class="params-row"><span>Address</span><span><?php echo htmlspecialchars($partner['address']); ?></span></div><?php endif; ?>
    <div class="params-row"><span>Last Login</span><span><?php echo htmlspecialchars($partner['last_login']); ?></span></div>
    <?php if (($_SESSION['auth']['role'] ?? '') === 'admin' && !empty($partner['notes'])): ?><div class="params-row"><span>Notes</span><span><?php echo htmlspecialchars($partner['notes']); ?></span></div><?php endif; ?>
-   <form action="logout.php" method="post">
+   <form action="../logout.php" method="post">
      <input type="hidden" name="csrf" value="<?php echo htmlspecialchars(csrf_token()); ?>">
      <button class="logout-btn" type="submit">Logout</button>
    </form>
