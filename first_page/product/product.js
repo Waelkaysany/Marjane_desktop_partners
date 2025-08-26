@@ -3,9 +3,10 @@
 // Filter state
 let currentFilters = {
   category: 'all',
-  maxPrice: 5,
+  maxPrice: 15, // Increased max price to accommodate new products
   ratings: [3, 4, 5],
-  discounts: ['low', 'medium', 'high']
+  discounts: ['low', 'medium', 'high'],
+  searchQuery: ''
 };
 
 // Wait for cart.js to load and initialize
@@ -20,8 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize filters
   initializeFilters();
   
-  // Simple call to render all products
-  renderProducts();
+  // Initialize search
+  initializeSearch();
+  
+  // Render all products (recommendation + all products)
+  renderAllProducts();
   
   // Initialize cart icon after products are rendered
   setTimeout(() => {
@@ -34,6 +38,47 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize parameters menu functionality
   initializeParamsMenu();
 });
+
+// Initialize search functionality
+function initializeSearch() {
+  const searchInput = document.getElementById('productSearch');
+  const clearSearchBtn = document.getElementById('clearSearch');
+  
+  if (searchInput) {
+    // Search on input
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim().toLowerCase();
+      currentFilters.searchQuery = query;
+      
+      // Show/hide clear button
+      if (clearSearchBtn) {
+        clearSearchBtn.style.display = query ? 'block' : 'none';
+      }
+      
+      // Apply filters (which includes search)
+      applyFilters();
+    });
+    
+    // Search on enter key
+    searchInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        this.blur(); // Remove focus
+      }
+    });
+  }
+  
+  if (clearSearchBtn) {
+    clearSearchBtn.addEventListener('click', function() {
+      if (searchInput) {
+        searchInput.value = '';
+        currentFilters.searchQuery = '';
+        this.style.display = 'none';
+        applyFilters();
+        searchInput.focus();
+      }
+    });
+  }
+}
 
 // Initialize filter functionality
 function initializeFilters() {
@@ -70,6 +115,11 @@ function initializeFilters() {
   const priceValue = document.getElementById('priceValue');
   
   if (priceRange && priceValue) {
+    // Update max value to 15
+    priceRange.max = 15;
+    priceRange.value = 15;
+    priceValue.textContent = '15.00';
+    
     priceRange.addEventListener('input', function() {
       const value = parseFloat(this.value);
       priceValue.textContent = value.toFixed(2);
@@ -130,9 +180,10 @@ function clearAllFilters() {
   // Reset filter state
   currentFilters = {
     category: 'all',
-    maxPrice: 5,
+    maxPrice: 15,
     ratings: [3, 4, 5],
-    discounts: ['low', 'medium', 'high']
+    discounts: ['low', 'medium', 'high'],
+    searchQuery: ''
   };
   
   // Reset UI
@@ -140,12 +191,22 @@ function clearAllFilters() {
   categoryButtons.forEach(btn => btn.classList.remove('active'));
   document.querySelector('[data-category="all"]').classList.add('active');
   
+  // Reset search
+  const searchInput = document.getElementById('productSearch');
+  const clearSearchBtn = document.getElementById('clearSearch');
+  if (searchInput) {
+    searchInput.value = '';
+  }
+  if (clearSearchBtn) {
+    clearSearchBtn.style.display = 'none';
+  }
+  
   // Reset price range
   const priceRange = document.getElementById('priceRange');
   const priceValue = document.getElementById('priceValue');
   if (priceRange && priceValue) {
-    priceRange.value = 5;
-    priceValue.textContent = '5.00';
+    priceRange.value = 15;
+    priceValue.textContent = '15.00';
   }
   
   // Reset checkboxes
@@ -159,9 +220,27 @@ function clearAllFilters() {
   applyFilters();
 }
 
-// Apply all filters
+// Apply all filters including search
 function applyFilters() {
-  const filteredProducts = recommendedProducts.filter(product => {
+  const allProductsList = getAllProducts();
+  const filteredProducts = allProductsList.filter(product => {
+    // Search filter
+    if (currentFilters.searchQuery) {
+      const searchFields = [
+        product.name.toLowerCase(),
+        product.description.toLowerCase(),
+        product.category.toLowerCase()
+      ];
+      
+      const matchesSearch = searchFields.some(field => 
+        field.includes(currentFilters.searchQuery)
+      );
+      
+      if (!matchesSearch) {
+        return false;
+      }
+    }
+    
     // Category filter
     if (currentFilters.category !== 'all' && product.category !== currentFilters.category) {
       return false;
@@ -195,6 +274,29 @@ function applyFilters() {
   
   // Update results counter
   updateResultsCounter(filteredProducts.length);
+  
+  // Show no results message if needed
+  showNoResultsMessage(filteredProducts.length === 0);
+}
+
+// Show no results message
+function showNoResultsMessage(noResults) {
+  const productGrid = document.getElementById('productGrid');
+  
+  if (noResults) {
+    const noResultsHTML = `
+      <div class="no-results" style="grid-column: 1 / -1; text-align: center; padding: 60px 20px;">
+        <div style="font-size: 48px; margin-bottom: 16px;">🔍</div>
+        <h3 style="font-family: 'Inter', sans-serif; font-size: 20px; font-weight: 600; color: #374151; margin: 0 0 8px 0;">
+          No products found
+        </h3>
+        <p style="font-family: 'Inter', sans-serif; font-size: 14px; color: #6b7280; margin: 0;">
+          Try adjusting your search terms or filters
+        </p>
+      </div>
+    `;
+    productGrid.innerHTML = noResultsHTML;
+  }
 }
 
 // Render filtered products
@@ -217,6 +319,25 @@ function updateResultsCounter(count) {
   if (resultsCounter) {
     const text = count === 1 ? '1 product' : `${count} products`;
     resultsCounter.textContent = text;
+  }
+}
+
+// Render all products (recommendation + all products)
+function renderAllProducts() {
+  const allProductsList = getAllProducts();
+  const productGrid = document.getElementById('productGrid');
+  
+  if (productGrid) {
+    const productsHTML = allProductsList.map(product => generateProductCard(product)).join('');
+    productGrid.innerHTML = productsHTML;
+    
+    // Initialize quantity selectors for all products
+    allProductsList.forEach(product => {
+      initializeQuantitySelector(product.id);
+    });
+    
+    // Update results counter
+    updateResultsCounter(allProductsList.length);
   }
 }
 

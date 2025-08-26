@@ -72,103 +72,127 @@ $partner = $stmt->fetch();
        <a href="../home.php" class="see-more">Back to Home →</a>
      </div>
      
-     <!-- Product Filter Bar -->
-     <div class="product-filter-bar">
-       <div class="filter-categories">
-         <button class="filter-category active" data-category="all">
-           All Products
-         </button>
-         <button class="filter-category" data-category="beverages">
-           Beverages
-         </button>
-         <button class="filter-category" data-category="food">
-           Food
-         </button>
-         <button class="filter-category" data-category="household">
-           Household
-         </button>
-         <button class="filter-category" data-category="personal">
-           Personal Care
-         </button>
-       </div>
-       
-       <div class="filter-controls">
-         <button class="filter-btn" id="filterBtn">
-           <span>Filters</span>
-           <svg class="filter-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-             <polyline points="6,9 12,15 18,9"></polyline>
-           </svg>
-         </button>
-       </div>
-     </div>
-     
-     <!-- Filter Dropdown -->
-     <div class="filter-dropdown" id="filterDropdown">
-       <div class="filter-section">
-         <h4>Price Range</h4>
-         <div class="price-range">
-           <input type="range" id="priceRange" min="0" max="5" step="0.1" value="5">
-           <div class="price-display">
-             <span>Max: $<span id="priceValue">5.00</span></span>
+      <!-- Product Search Bar -->
+      <div class="product-search-container">
+        <div class="search-wrapper">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+          <input 
+            type="text" 
+            id="productSearch" 
+            class="product-search-input" 
+            placeholder="Search products by name, description, or category..."
+            autocomplete="off"
+          >
+          <button class="clear-search" id="clearSearch" style="display: none;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Product Filter Bar -->
+      <div class="product-filter-bar">
+        <div class="filter-categories">
+          <button class="filter-category active" data-category="all">
+            All Products
+          </button>
+          <button class="filter-category" data-category="fresh-produce">
+            Fresh Produce
+          </button>
+          <button class="filter-category" data-category="beverages">
+            Beverages
+          </button>
+          <button class="filter-category" data-category="meat-seafood">
+            Meat & Seafood
+          </button>
+          <button class="filter-category" data-category="dairy">
+            Dairy
+          </button>
+        </div>
+        
+        <div class="filter-controls">
+          <button class="filter-btn" id="filterBtn">
+            <span>Filters</span>
+            <svg class="filter-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6,9 12,15 18,9"></polyline>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+      <!-- Filter Dropdown -->
+      <div class="filter-dropdown" id="filterDropdown">
+        <div class="filter-section">
+          <h4>Price Range</h4>
+                       <div class="price-range">
+               <input type="range" id="priceRange" min="0" max="15" step="0.1" value="15">
+               <div class="price-display">
+                 <span>Max: $<span id="priceValue">15.00</span></span>
+               </div>
+             </div>
+        </div>
+        
+        <div class="filter-section">
+          <h4>Rating</h4>
+          <div class="rating-filters">
+            <label class="rating-option">
+              <input type="checkbox" value="5" checked>
+              <span class="stars">★★★★★</span>
+              <span>5 stars</span>
+            </label>
+            <label class="rating-option">
+              <input type="checkbox" value="4" checked>
+              <span class="stars">★★★★☆</span>
+              <span>4+ stars</span>
+            </label>
+            <label class="rating-option">
+              <input type="checkbox" value="3" checked>
+              <span class="stars">★★★☆☆</span>
+              <span>3+ stars</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="filter-section">
+          <h4>Discount</h4>
+          <div class="discount-filters">
+            <label class="discount-option">
+              <input type="checkbox" value="high" checked>
+              <span>High Discount (30%+)</span>
+            </label>
+            <label class="discount-option">
+              <input type="checkbox" value="medium" checked>
+              <span>Medium Discount (15-30%)</span>
+            </label>
+            <label class="discount-option">
+              <input type="checkbox" value="low" checked>
+              <span>Low Discount (<15%)</span>
+            </label>
+          </div>
+        </div>
+        
+        <div class="filter-actions">
+          <button class="clear-filters" id="clearFilters">Clear All</button>
+          <button class="apply-filters" id="applyFilters">Apply Filters</button>
+        </div>
+      </div>
+      
+                 <!-- Results Counter -->
+           <div class="results-counter">
+             <span id="resultsCount">32 products</span>
            </div>
-         </div>
-       </div>
-       
-       <div class="filter-section">
-         <h4>Rating</h4>
-         <div class="rating-filters">
-           <label class="rating-option">
-             <input type="checkbox" value="5" checked>
-             <span class="stars">★★★★★</span>
-             <span>5 stars</span>
-           </label>
-           <label class="rating-option">
-             <input type="checkbox" value="4" checked>
-             <span class="stars">★★★★☆</span>
-             <span>4+ stars</span>
-           </label>
-           <label class="rating-option">
-             <input type="checkbox" value="3" checked>
-             <span class="stars">★★★☆☆</span>
-             <span>3+ stars</span>
-           </label>
-         </div>
-       </div>
-       
-       <div class="filter-section">
-         <h4>Discount</h4>
-         <div class="discount-filters">
-           <label class="discount-option">
-             <input type="checkbox" value="high" checked>
-             <span>High Discount (30%+)</span>
-           </label>
-           <label class="discount-option">
-             <input type="checkbox" value="medium" checked>
-             <span>Medium Discount (15-30%)</span>
-           </label>
-           <label class="discount-option">
-             <input type="checkbox" value="low" checked>
-             <span>Low Discount (<15%)</span>
-           </label>
-         </div>
-       </div>
-       
-       <div class="filter-actions">
-         <button class="clear-filters" id="clearFilters">Clear All</button>
-         <button class="apply-filters" id="applyFilters">Apply Filters</button>
-       </div>
-     </div>
-     
-     <!-- Results Counter -->
-     <div class="results-counter">
-       <span id="resultsCount">16 products</span>
-     </div>
-     
-     <div id="productGrid" class="product-grid"></div>
-   </div>
- </div>
+      
+      <div id="productGrid" class="product-grid"></div>
+    </div>
+  </div>
  </div>
  <script src="../recommendation-product.js"></script>
+ <script src="all.product.js"></script>
  <script src="../cart.js"></script>
  <script src="product.js"></script>
  <script src="../assets/js/profile.js" defer></script>
