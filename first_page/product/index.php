@@ -24,9 +24,9 @@ $partner = $stmt->fetch();
    </div>
    <div class="menu">
     <ul>
-    <li><a href="../home.php">PROMOTIONS</a></li>
-    <li><a href="index.php">PRODUCTS</a></li>
-             <li><a href="../equipment/equipment.php">EQUIPMENTS</a></li>
+            <li><a href="../home.php">PROMOTIONS</a></li>
+        <li><a href="index.php">PRODUCTS</a></li>
+        <li><a href="../equipment/equipment.php">EQUIPMENTS</a></li>
     </ul>
    </div>
    <div class="right-side">
@@ -81,12 +81,12 @@ $partner = $stmt->fetch();
           </svg>
           <input 
             type="text" 
-            id="productSearch" 
+            id="newProductSearch" 
             class="product-search-input" 
             placeholder="Search products by name, description, or category..."
             autocomplete="off"
           >
-          <button class="clear-search" id="clearSearch" style="display: none;">
+          <button class="clear-search" id="newClearSearch" style="display: none;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>

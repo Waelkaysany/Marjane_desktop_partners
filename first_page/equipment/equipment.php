@@ -19,13 +19,13 @@ require_auth();
     </div>
     <div class="menu">
       <ul>
-        <li><a href="#">PROMOTIONS</a></li>
-        <li><a href="#">PRODUCTS</a></li>
+        <li><a href="../home.php">PROMOTIONS</a></li>
+        <li><a href="../product/">PRODUCTS</a></li>
         <li><a href="equipment.php">EQUIPMENTS</a></li>
       </ul>
     </div>
     <div class="right-side">
-      <button class="button">
+      <a href="../ourplan/ourplan.php" class="button" style="text-decoration: none; display: inline-flex; align-items: center;">
         <span class="text">Discover</span>
         <span class="svg">
           <svg
@@ -41,7 +41,7 @@ require_auth();
           ></path>
         </svg>
       </span>
-    </button>
+    </a>
     <a class="cart-link" href="../cart.php" aria-label="Cart">
       <div class="cart-icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -124,7 +124,7 @@ require_auth();
 
       <!-- Request Button -->
       <div class="request-button-container anim-item">
-        <button class="request-btn" onclick="sendRequest()">
+        <button class="request-btn" onclick="sendRequest(1, 'FrostLine Triple Glass Door Cooler', 'refrigerator', '$299/month')">
           <span class="btn-text">Send Request</span>
           <span class="btn-icon">→</span>
         </button>
@@ -193,7 +193,7 @@ require_auth();
 
       <!-- Request Button -->
       <div class="request-button-container anim-item">
-        <button class="request-btn" onclick="sendRequest3()">
+        <button class="request-btn" onclick="sendRequest(2, 'Heavy-Duty Shelf', 'shelf', '$299/month')">
           <span class="btn-text">Send Request</span>
           <span class="btn-icon">→</span>
         </button>
@@ -257,7 +257,7 @@ require_auth();
 
       <!-- Request Button -->
       <div class="request-button-container anim-item">
-        <button class="request-btn" onclick="sendRequest4()">
+        <button class="request-btn" onclick="sendRequest(3, 'Smart Checkout Pro', 'checkout', '$299/month')">
           <span class="btn-text">Request Quote</span>
           <span class="btn-icon">→</span>
         </button>
@@ -279,6 +279,11 @@ require_auth();
   </section>
 </div>
 
+  <!-- CSRF Token for AJAX requests -->
+  <script>
+    window.csrfToken = '<?php echo csrf_token(); ?>';
+  </script>
+  
   <script src="../cart.js"></script>
   <script src="equipment.js"></script>
   
@@ -315,10 +320,65 @@ require_auth();
 
     // Note: overflow handling moved to GSAP ScrollTrigger logic (equipment-scroll.js)
 
-    // Request button functionality
-    function sendRequest() {
-      const successMessage = document.getElementById('successMessage');
-      successMessage.classList.add('show');
+    // Unified request function for all equipment
+    function sendRequest(equipmentId, equipmentName, equipmentType, price) {
+      // Show loading state
+      const button = event.target.closest('.request-btn');
+      const originalText = button.innerHTML;
+      button.innerHTML = '<span class="btn-text">Sending...</span>';
+      button.disabled = true;
+      
+      // Prepare form data
+      const formData = new FormData();
+      formData.append('equipment_id', equipmentId);
+      formData.append('equipment_name', equipmentName);
+      formData.append('equipment_type', equipmentType);
+      formData.append('price', price);
+      formData.append('csrf', window.csrfToken);
+      
+      // Make AJAX request
+      fetch('process_equipment_request.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          // Show success message based on equipment ID
+          let successMessage;
+          switch(equipmentId) {
+            case 1:
+              successMessage = document.getElementById('successMessage');
+              break;
+            case 2:
+              successMessage = document.getElementById('successMessage3');
+              break;
+            case 3:
+              successMessage = document.getElementById('successMessage4');
+              break;
+          }
+          
+          if (successMessage) {
+            // Update reference number
+            const refElement = successMessage.querySelector('.reference-number');
+            if (refElement) {
+              refElement.textContent = 'Ref: ' + data.reference;
+            }
+            successMessage.classList.add('show');
+          }
+        } else {
+          alert('Error: ' + (data.message || 'Failed to submit request'));
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('Error: Failed to submit request. Please try again.');
+      })
+      .finally(() => {
+        // Restore button state
+        button.innerHTML = originalText;
+        button.disabled = false;
+      });
     }
 
     // Close message function
@@ -327,39 +387,10 @@ require_auth();
       successMessage.classList.remove('show');
     }
 
-    // Close success message when clicking outside
-    document.addEventListener('click', function(event) {
-      const successMessage = document.getElementById('successMessage');
-      
-      // Close if clicking on the overlay (outside the message content)
-      if (event.target === successMessage) {
-        closeMessage();
-      }
-    });
-
-    // Also close when pressing Escape key
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape') {
-        closeMessage();
-      }
-    });
-
-    // Request button functionality for page 3
-    function sendRequest3() {
-      const successMessage = document.getElementById('successMessage3');
-      successMessage.classList.add('show');
-    }
-
     // Close message function for page 3
     function closeMessage3() {
       const successMessage = document.getElementById('successMessage3');
       successMessage.classList.remove('show');
-    }
-
-    // Request button functionality for page 4
-    function sendRequest4() {
-      const successMessage = document.getElementById('successMessage4');
-      successMessage.classList.add('show');
     }
 
     // Close message function for page 4
@@ -367,6 +398,27 @@ require_auth();
       const successMessage = document.getElementById('successMessage4');
       successMessage.classList.remove('show');
     }
+
+    // Close success message when clicking outside
+    document.addEventListener('click', function(event) {
+      const successMessages = document.querySelectorAll('.success-message');
+      
+      successMessages.forEach(message => {
+        if (event.target === message) {
+          message.classList.remove('show');
+        }
+      });
+    });
+
+    // Also close when pressing Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        const successMessages = document.querySelectorAll('.success-message');
+        successMessages.forEach(message => {
+          message.classList.remove('show');
+        });
+      }
+    });
 
   </script>
   

@@ -40,3 +40,23 @@ function getCartDbConnection() {
         throw new Exception('Cart database connection failed');
     }
 }
+
+// Equipment database (equipementpartner) connection
+function getEquipmentDbConnection() {
+    global $DB_HOST, $DB_USER, $DB_PASS, $DB_CHARSET;
+    
+    $EQUIPMENT_DBNAME = getenv('EQUIPMENT_DBNAME') ?: 'equipementpartner';
+    $equipmentDsn = "mysql:host={$DB_HOST};dbname={$EQUIPMENT_DBNAME};charset={$DB_CHARSET}";
+    
+    try {
+        $pdoEquipment = new PDO($equipmentDsn, $DB_USER, $DB_PASS, [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+            PDO::ATTR_EMULATE_PREPARES => false,
+        ]);
+        return $pdoEquipment;
+    } catch (Throwable $e) {
+        error_log("Equipment DB connection failed: " . $e->getMessage());
+        throw new Exception('Equipment database connection failed');
+    }
+}

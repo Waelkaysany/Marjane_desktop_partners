@@ -23,13 +23,13 @@ $partner = $stmt->fetch();
    </div>
    <div class="menu">
     <ul>
-    <li><a href="home.php">PROMOTIONS</a></li>
-    <li><a href="product/">PRODUCTS</a></li>
-             <li><a href="equipment/equipment.php">EQUIPMENTS</a></li>
+            <li><a href="home.php">PROMOTIONS</a></li>
+        <li><a href="product/">PRODUCTS</a></li>
+        <li><a href="equipment/equipment.php">EQUIPMENTS</a></li>
     </ul>
    </div>
    <div class="right-side">
-    <button class="button">
+    <a href="ourplan/ourplan.php" class="button" style="text-decoration: none; display: inline-flex; align-items: center;">
       <span class="text">Discover</span>
       <span class="svg">
         <svg
@@ -45,7 +45,7 @@ $partner = $stmt->fetch();
           ></path>
         </svg>
       </span>
-    </button>
+    </a>
     <a class="cart-link" href="cart.php" aria-label="Cart">
       <div class="cart-icon-container">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
