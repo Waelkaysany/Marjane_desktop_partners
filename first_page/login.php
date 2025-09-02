@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && !$locked) {
 		</section>
 		<aside class="right">
 			<div class="card">
-				<div class="brand">Cogie</div>
+				
 				<h1 class="title">Welcome Back</h1>
 				<p>Enter your email and password to access your account</p>
 				<?php if ($locked): ?><p class="error">Too many attempts. Try again later.</p><?php endif; ?>

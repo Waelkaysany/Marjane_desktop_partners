@@ -268,17 +268,17 @@ try {
                             <i class="bi bi-graph-up"></i> Reports
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="analytics.php" class="nav-link">
-                            <i class="bi bi-bar-chart"></i> Analytics
-                        </a>
-                    </li>
                 </ul>
             </div>
             
             <div class="nav-section">
                 <div class="nav-section-title">System</div>
                 <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a href="profile.php" class="nav-link">
+                            <i class="bi bi-person-circle"></i> Profile
+                        </a>
+                    </li>
                     <li class="nav-item">
                         <a href="settings.php" class="nav-link">
                             <i class="bi bi-gear"></i> Settings

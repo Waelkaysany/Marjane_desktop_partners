@@ -128,6 +128,16 @@ try {
                 <div class="nav-section-title">System</div>
                 <ul class="nav flex-column">
                     <li class="nav-item">
+                        <a href="profile.php" class="nav-link">
+                            <i class="bi bi-person-circle"></i> Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="settings.php" class="nav-link">
+                            <i class="bi bi-gear"></i> Settings
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="logout.php" class="nav-link text-danger">
                             <i class="bi bi-box-arrow-right"></i> Logout
                         </a>

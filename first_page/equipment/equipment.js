@@ -348,3 +348,84 @@ document.addEventListener('DOMContentLoaded', () => {
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { EquipmentPage, EquipmentUtils };
 }
+
+// ... existing code ...
+
+// Equipment request functions
+function sendRequest(equipmentId, equipmentName, equipmentType, price) {
+  // Check if user is authenticated
+  if (!window.csrfToken) {
+    alert('Please log in to submit equipment requests.');
+    return;
+  }
+
+  // Get the button that was clicked
+  const button = event.target.closest('.request-btn');
+  if (!button) return;
+
+  // Show loading state
+  const originalText = button.innerHTML;
+  button.disabled = true;
+  button.innerHTML = '<span class="loading-spinner"></span> Sending...';
+
+  // Prepare request data
+  const formData = new FormData();
+  formData.append('equipment_id', equipmentId);
+  formData.append('equipment_name', equipmentName);
+  formData.append('equipment_type', equipmentType);
+  formData.append('price', price);
+  formData.append('csrf', window.csrfToken);
+
+  // Send request to server
+  fetch('process_equipment_request.php', {
+    method: 'POST',
+    body: formData
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      // Show success message
+      const pageId = getCurrentPageId();
+      const successMessage = document.getElementById(`successMessage${pageId}`);
+      if (successMessage) {
+        successMessage.style.display = 'flex';
+        // Update reference number if available
+        const refElement = successMessage.querySelector('.reference-number');
+        if (refElement && data.reference) {
+          refElement.textContent = `Ref: ${data.reference}`;
+        }
+      }
+    } else {
+      alert('Error: ' + (data.message || 'Failed to submit request'));
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('Failed to submit request. Please try again.');
+  })
+  .finally(() => {
+    // Restore button state
+    button.disabled = false;
+    button.innerHTML = originalText;
+  });
+}
+
+// Helper function to get current page ID
+function getCurrentPageId() {
+  const activePage = document.querySelector('.page.active');
+  if (activePage) {
+    return activePage.id.replace('page', '');
+  }
+  return '1'; // Default fallback
+}
+
+// Close message functions
+function closeMessage1() { document.getElementById('successMessage1').style.display = 'none'; }
+function closeMessage2() { document.getElementById('successMessage2').style.display = 'none'; }
+function closeMessage3() { document.getElementById('successMessage3').style.display = 'none'; }
+function closeMessage4() { document.getElementById('successMessage4').style.display = 'none'; }
+
+// Export for module usage
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { EquipmentPage, EquipmentUtils };
+}

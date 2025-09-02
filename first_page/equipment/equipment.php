@@ -186,14 +186,14 @@ require_auth();
       <div class="price-display anim-item">
         <div class="price-amount">
           <span class="currency">$</span>
-          <span class="amount">299</span>
+          <span class="amount">105</span>
           <span class="period">/month</span>
         </div>
       </div>
 
       <!-- Request Button -->
       <div class="request-button-container anim-item">
-        <button class="request-btn" onclick="sendRequest(2, 'Heavy-Duty Shelf', 'shelf', '$299/month')">
+        <button class="request-btn" onclick="sendRequest(2, 'Heavy-Duty Shelf', 'shelf', '$105/month')">
           <span class="btn-text">Send Request</span>
           <span class="btn-icon">→</span>
         </button>
@@ -250,14 +250,14 @@ require_auth();
       <div class="price-display anim-item">
         <div class="price-amount">
           <span class="currency">$</span>
-          <span class="amount">299</span>
+          <span class="amount">200</span>
           <span class="period">/month</span>
         </div>
       </div>
 
       <!-- Request Button -->
       <div class="request-button-container anim-item">
-        <button class="request-btn" onclick="sendRequest(3, 'Smart Checkout Pro', 'checkout', '$299/month')">
+        <button class="request-btn" onclick="sendRequest(3, 'Smart Checkout Pro', 'checkout', '$200/month')">
           <span class="btn-text">Request Quote</span>
           <span class="btn-icon">→</span>
         </button>
