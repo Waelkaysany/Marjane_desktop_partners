@@ -205,24 +205,8 @@ if (isset($_GET['msg']) && $_GET['msg'] === 'success' && isset($_GET['plan'])) {
      </div>
   </nav>
 
-  <!-- Login Status Indicator -->
-  <div style="
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    padding: 10px 15px;
-    border-radius: 6px;
-    color: white;
-    font-size: 14px;
-    z-index: 1000;
-    background-color: <?= $partnerid > 0 ? '#10b981' : '#ef4444' ?>;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  ">
-    <?php if ($partnerid > 0): ?>
-      ✓ Logged in (Partner ID: <?= $partnerid ?>)
-    <?php else: ?>
-      ✗ Not logged in
-    <?php endif; ?>
+  
+  
   </div>
 
   <!-- Message Display -->

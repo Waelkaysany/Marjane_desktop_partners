@@ -62,7 +62,7 @@ $partner = $stmt->fetch();
   </nav>
   <div class="main"> 
      <div id="page1">
-      <img src="../../img.video/a4a11e4c-0af0-4601-ae4c-072c6cae0ab2.png" alt="">
+      <img src="https://media.istockphoto.com/id/1457433817/photo/group-of-healthy-food-for-flexitarian-diet.jpg?s=612x612&w=0&k=20&c=v48RE0ZNWpMZOlSp13KdF1yFDmidorO2pZTu2Idmd3M=" alt="">
 <p>ALL PRODUCTS</p>
  </div>
  <div id="page2">

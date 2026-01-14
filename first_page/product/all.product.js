@@ -4,9 +4,9 @@ const allProducts = [
   {
     id: 101,
     name: "FRESH TOMATOES",
-    image: "https://images.unsplash.com/photo-1546094096-0df4bcaaa337?w=400&h=400&fit=crop&crop=center",
+    image: "https://res.cloudinary.com/dcphm6bor/image/upload/q_75,f_auto,w_1920/v1751382220/product/a820bb11f69fe199bdf9fd131b9ca362.webp",
     quantity: "1 kg",
-    price: 2.5,
+    price: 0.25,
     originalPrice: 3.2,
     rating: 5,
     description: "ORGANIC RED TOMATOES",
@@ -17,7 +17,7 @@ const allProducts = [
   {
     id: 102,
     name: "BANANAS",
-    image: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=400&fit=crop&crop=center",
+    image: "https://www.bobtailfruit.co.uk/media/mageplaza/blog/post/4/2/42e9as7nataai4a6jcufwg.jpeg",
     quantity: "1 kg",
     price: 1.8,
     originalPrice: 2.4,
@@ -30,7 +30,7 @@ const allProducts = [
   {
     id: 103,
     name: "FRESH APPLES",
-    image: "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=400&h=400&fit=crop&crop=center",
+    image: "https://www.makaro.id/wp-content/uploads/2020/03/wangsan-fuji.jpg",
     quantity: "1 kg",
     price: 3.2,
     originalPrice: 4.0,
@@ -43,9 +43,9 @@ const allProducts = [
   {
     id: 104,
     name: "FRESH CARROTS",
-    image: "https://images.unsplash.com/photo-1447175008436-170170753d52?w=400&h=400&fit=crop&crop=center",
+    image: "https://res.cloudinary.com/dcphm6bor/image/upload/q_75,f_auto,w_1920/v1751384253/product/b28ff07f7228de6c76050425bf4ebef9.webp",
     quantity: "1 kg",
-    price: 1.5,
+    price: 0.99,
     originalPrice: 2.0,
     rating: 4,
     description: "ORANGE CARROTS",
@@ -56,7 +56,7 @@ const allProducts = [
   {
     id: 105,
     name: "FRESH LETTUCE",
-    image: "https://images.unsplash.com/photo-1622205313162-be1d5716a43e?w=400&h=400&fit=crop&crop=center",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrxnMoGZzf9PHTtXoNWmLmlXziXT_U77O47g&s",
     quantity: "1 piece",
     price: 1.2,
     originalPrice: 1.6,
@@ -69,7 +69,7 @@ const allProducts = [
   {
     id: 106,
     name: "FRESH ONIONS",
-    image: "https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=400&h=400&fit=crop&crop=center",
+    image: "https://cdn.mafrservices.com/sys-master-root/h69/h59/12922526498846/16856_main.jpg?im=Resize=1700",
     quantity: "1 kg",
     price: 1.8,
     originalPrice: 2.3,
@@ -84,7 +84,7 @@ const allProducts = [
   {
     id: 201,
     name: "ORANGE JUICE",
-    image: "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?w=400&h=400&fit=crop&crop=center",
+    image: "https://www.mymarket.ma/cdn/shop/products/43.jpg?v=1654260744",
     quantity: "1 liter",
     price: 2.8,
     originalPrice: 3.5,
@@ -97,7 +97,7 @@ const allProducts = [
   {
     id: 202,
     name: "GREEN TEA",
-    image: "https://images.unsplash.com/photo-1556682851c0c6a83c8c2b8b3?w=400&h=400&fit=crop&crop=center",
+    image: "https://www.mymarket.ma/cdn/shop/products/THE-A-LA-MENTHE-MAROC-12.5_1024x1024_6d4e84d1-1430-4bcf-af69-1c7806ea9547.png?v=1680875854&width=375",
     quantity: "20 bags",
     price: 3.5,
     originalPrice: 4.2,
@@ -109,8 +109,8 @@ const allProducts = [
   },
   {
     id: 203,
-    name: "LEMONADE",
-    image: "https://images.unsplash.com/photo-1621263764928-df1444c5e859?w=400&h=400&fit=crop&crop=center",
+    name: "MINERAL WATER",
+    image: "https://api.allonaya.ma/assets/files/Media/TQduLsNHmThirPPec/large/Sidi-Ali-pack-2L.jpg",
     quantity: "1 liter",
     price: 2.2,
     originalPrice: 2.8,
@@ -122,8 +122,8 @@ const allProducts = [
   },
   {
     id: 204,
-    name: "COFFEE BEANS",
-    image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=400&h=400&fit=crop&crop=center",
+    name: "COFFEE ",
+    image: "https://www.mymarket.ma/cdn/shop/products/10279.jpg?v=1590786040",
     quantity: "500g",
     price: 8.5,
     originalPrice: 10.0,
@@ -135,8 +135,8 @@ const allProducts = [
   },
   {
     id: 205,
-    name: "MINERAL WATER",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=400&fit=crop&crop=center",
+    name: "PEPSI MAX",
+    image: "https://entreprise.warakpro.ma/2338-large_default/pepsi-max-sans-sucre-1l-paquet-de-6.jpg",
     quantity: "6 bottles",
     price: 2.5,
     originalPrice: 3.0,
@@ -151,7 +151,7 @@ const allProducts = [
   {
     id: 301,
     name: "FRESH CHICKEN",
-    image: "https://images.unsplash.com/photo-1604503468506-a8da13d82791?w=400&h=400&fit=crop&crop=center",
+    image: "https://rawabihypermarket.com/uploads/product_images/featured_image/927611.jpg",
     quantity: "1 kg",
     price: 6.5,
     originalPrice: 7.8,
@@ -163,8 +163,8 @@ const allProducts = [
   },
   {
     id: 302,
-    name: "SALMON FILLET",
-    image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?w=400&h=400&fit=crop&crop=center",
+    name: "FISH PACK ",
+    image: "https://miro.medium.com/1*Sbt7ndbX76ul1ZDB9uCChg.jpeg",
     quantity: "500g",
     price: 12.5,
     originalPrice: 15.0,
@@ -177,7 +177,7 @@ const allProducts = [
   {
     id: 303,
     name: "BEEF STEAK",
-    image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?w=400&h=400&fit=crop&crop=center",
+    image: "https://www.telegraph.co.uk/content/dam/food-and-drink/2024/02/14/TELEMMGLPICT000366482974_17079159370030_trans_NvBQzQNjv4BqqVzuuqpFlyLIwiB6NTmJwfSVWeZ_vEN7c6bHu2jJnT8.jpeg?imwidth=350",
     quantity: "300g",
     price: 9.8,
     originalPrice: 11.5,
@@ -190,7 +190,7 @@ const allProducts = [
   {
     id: 304,
     name: "LAMB CHOPS",
-    image: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=400&fit=crop&crop=center",
+    image: "https://groceries.morrisons.com/images-v3/4b85987b-1398-4173-a0c1-3546047c9d74/e676e902-b056-4dcd-b86f-e18ea4605422/300x300.jpg",
     quantity: "400g",
     price: 11.2,
     originalPrice: 13.5,
@@ -203,7 +203,7 @@ const allProducts = [
   {
     id: 305,
     name: "TUNA FISH",
-    image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=400&fit=crop&crop=center",
+    image: "https://api.allonaya.ma/assets/files/Media/7LTSPtDFe3T397erS/image/Thon-entier-a-lhuile-vegetale-3x-80g-MARIO.jpg",
     quantity: "250g",
     price: 4.8,
     originalPrice: 5.5,
@@ -218,7 +218,7 @@ const allProducts = [
   {
     id: 401,
     name: "FRESH MILK",
-    image: "https://images.unsplash.com/photo-1550583724-b2692b85b150?w=400&h=400&fit=crop&crop=center",
+    image: "https://api.allonaya.ma/assets/files/Media/6ejCRRb8whEmJKxsj/large/jgfufufgu.jpg",
     quantity: "1 liter",
     price: 3.2,
     originalPrice: 3.8,
@@ -231,7 +231,7 @@ const allProducts = [
   {
     id: 402,
     name: "GREEK YOGURT",
-    image: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=400&fit=crop&crop=center",
+    image: "https://www.mymarket.ma/cdn/shop/products/8410128121006.png?v=1647958151",
     quantity: "500g",
     price: 4.5,
     originalPrice: 5.2,
@@ -244,7 +244,7 @@ const allProducts = [
   {
     id: 403,
     name: "CHEDDAR CHEESE",
-    image: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&crop=center",
+    image: "https://www.mymarket.ma/cdn/shop/products/b70m.png?v=1654510369",
     quantity: "200g",
     price: 3.8,
     originalPrice: 4.5,
@@ -257,7 +257,7 @@ const allProducts = [
   {
     id: 404,
     name: "ORGANIC EGGS",
-    image: "https://images.unsplash.com/photo-1506976785307-8732e854ad03?w=400&h=400&fit=crop&crop=center",
+    image: "https://cdn.mafrservices.com/pim-content/UAE/media/product/2214048/1744952403/2214048_main.jpg",
     quantity: "12 pieces",
     price: 5.2,
     originalPrice: 6.0,
@@ -270,7 +270,7 @@ const allProducts = [
   {
     id: 405,
     name: "BUTTER",
-    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center",
+    image: "https://e-xportmorocco.com/storage/produits/thumbnail-1645523506.png",
     quantity: "250g",
     price: 2.8,
     originalPrice: 3.3,
@@ -283,7 +283,7 @@ const allProducts = [
   {
     id: 406,
     name: "COTTAGE CHEESE",
-    image: "https://images.unsplash.com/photo-1486297678162-eb2a19b0a32d?w=400&h=400&fit=crop&crop=center",
+    image: "https://cdn.dsmcdn.com/mnresize/1200/1800/ty572/product/media/images/20221019/10/197041555/360533077/1/1_org_zoom.jpg",
     quantity: "300g",
     price: 3.5,
     originalPrice: 4.1,

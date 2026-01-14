@@ -51,7 +51,7 @@ const recommendedProducts = [
   {
     id: 5,
     name: "LESIEUR",
-    image: "https://storage.googleapis.com/sales-img-ma-live/web/cache/sylius_shop_product_original/4c/84/ece24a4167a9b3568856530454f5.jpg",
+    image: "https://api.allonaya.ma/assets/files/Media/ZYQjnMDscco35TpaD/thumbnail/Huile-De-Table-LESIEUR-5L.png",
     quantity: "1 bunch",
     price: 1.49,
     originalPrice: 2.99,
@@ -96,18 +96,7 @@ const recommendedProducts = [
     tag: "discount",
     tagText: "-31%"
   },
-  {
-    id: 9,
-    name: "",
-    image: "https://images.unsplash.com/photo-1541519227354-08fa5d50c44d?w=400&h=400&fit=crop&crop=center",
-    quantity: "1 slice",
-    price: 7.99,
-    originalPrice: 7.5,
-    rating: 4,
-    description: "Healthy fats",
-    tag: "discount",
-    tagText: "-33%"
-  },
+  
   {
     id: 10,
     name: "GHAYT",
@@ -147,7 +136,7 @@ const recommendedProducts = [
   {
     id: 13,
     name: "LARENA",
-    image: "https://storage.googleapis.com/sales-img-ma-live/web/cache/sylius_large/ea/ce/b2cbca2d13ac159c5faba8c1be26.jpg",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFzCzf_K_XJi0bRXZZscC4EKNB9VwtzFfY_w&s",
     quantity: "1 tub",
     price: 2.19,
     originalPrice: 2.55,
@@ -159,7 +148,7 @@ const recommendedProducts = [
   {
     id: 14,
     name: "EL BARAKA",
-    image: "https://storage.googleapis.com/sales-img-ma-live/web/cache/sylius_large/48/60/fa6ec1e737345f12223a8b31e30f.jpg",
+    image: "https://shippini.ma/wp-content/uploads/2023/10/Confiture-doranges-430g-EL-BARAKA.jpg",
     quantity: "1 can",
     price: 1.3,
     originalPrice: 1.7,

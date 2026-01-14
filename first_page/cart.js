@@ -316,14 +316,14 @@ class Cart {
                   <div class="progress-fill"></div>
                 </div>
                 <div class="delivery-locations">
-                  <span>Malang, Indonesia</span>
-                  <span>Emir's House, Indonesia</span>
+                  <span>MOROCCO,El jadida</span>
+                  <span>Wail el kaysany</span>
                 </div>
               </div>
               
               <div class="estimated-arrival">
                 <h3>Estimated Arrival</h3>
-                <div class="arrival-date">9 July 2024</div>
+                <div class="arrival-date">9 July 2025</div>
                 <div class="delivery-time">Delivered in 5 Days</div>
               </div>
             </div>
@@ -392,7 +392,7 @@ class Cart {
               <h3 class="items-title">Items ${cartItems.length}</h3>
               ${cartItems.length > 0 ? cartItems.map(item => `
                 <div class="item-card">
-                  <div class="item-image">👟</div>
+                  <div class="item-image"></div>
                   <div class="item-details">
                     <div class="item-name">${item.name || 'Product'}</div>
                     <div class="item-price">$${(item.price || 0).toFixed(2)} x${item.quantity || 0}</div>
